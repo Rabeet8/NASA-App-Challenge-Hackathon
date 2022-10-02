@@ -1,0 +1,196 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh; /*viewport height*/
+  display: flex;
+  /* background: #2b2b30; */
+  flex-direction: column;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+body{
+  /* background: rgb(92,53,5); */
+  background-image: linear-gradient(158deg, rgba(92,53,5,1) 16%, rgba(75,79,154,1) 45%, rgba(0,0,0,1) 71%);
+}
+
+.card-game {
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  
+
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 5px 5px 4px #0c720cc0;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background: #ff7300;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 5px;
+  background: #ff7300;
+  backface-visibility: hidden;
+  object-fit: cover;
+}
+
+
+.heading{
+  display: flex;
+  justify-content: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight:bolder;
+  color: #a8eb12;
+  z-index: 1;
+  font-size: 70px;
+}
+ span{
+  color: #004d7a !important;
+}
+
+/* BUTTON STYLING */
+.button {
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: hsl(220, 80%, 50%);
+	width: 200px;
+	height: 40px;
+	margin-top: calc(100vh - 75px);
+	margin-left: calc(55vw - 175px);
+
+	border-radius: 30px;
+	text-shadow: 
+		0px 5px #ffffff, 
+		0px 10px 10px #0003;
+	box-shadow: 
+		0px 0px 0px 11px #008793,
+		0px 10px 0px 11px #a8eb12,
+		0px 20px 20px 11px #051937;
+	cursor: pointer;
+	border-radius: 100px 30px 100px 30px;
+
+}
+
+.button p {
+	margin-top: 0px;
+	transform: rotate(-3deg);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
+.button:hover {
+	animation: .8s morph ease infinite;
+}
+
+.button:hover p {
+	animation: .8s rot ease infinite;
+}
+
+@keyframes morph {
+	0% {
+		border-radius: 100px 30px 100px 30px;
+	} 50% {
+		border-radius: 30px 100px 30px 100px;
+	} 100% {
+		border-radius: 100px 30px 100px 30px;
+	}
+}
+
+@keyframes rot {
+	0% {
+		transform: rotate(-3deg);
+	} 50% {
+		transform: rotate(3deg);
+	} 100% {
+		transform: rotate(-3deg);
+	}
+}
+
+/* aside */
+
+.information{
+  border: rgb(255, 255, 255) 2px solid;
+  border-radius: 30px;
+  width: fit-content;
+  max-width: 30vw;
+  position: fixed;
+  top: 100px;
+  left: 8px;
+  height: 82%;
+  line-height: 20px;
+  padding: 7px;
+  font-size: 20px;
+}
+
+.information2{
+  border: rgb(255, 255, 255) 2px solid;
+  border-radius: 30px;
+  width: fit-content;
+  max-width: 30vw;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  height: 82%;
+  line-height: 20px;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  font-size: 20px;
+}
+
+.one,.two,.three{
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 12px 0px;
+}
+
+a{
+  color: transparent;
+  text-decoration: none;
+}
+/* INFORMATION IMAGES */
+.info-img{
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
